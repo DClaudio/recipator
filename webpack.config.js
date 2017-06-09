@@ -41,10 +41,10 @@ module.exports = {
                 test: /\.css$/,
                 loaders: ['style-loader', `css?root=${sourceRoot}`]
             },
-            {
-                test: /\.scss$/,
-                loaders: ['style-loader', `css?root=${sourceRoot}`, 'sass']
-            },
+            // {
+            //     test: /\.scss$/,
+            //     loaders: ['style-loader', `css?root=${sourceRoot}`, 'sass']
+            // },
             {
                 // Images
                 test: /\.(jpg|gif|png|svg|ico)(\?.*)?$/,
