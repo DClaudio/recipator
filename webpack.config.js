@@ -1,6 +1,6 @@
 const webpack = require('webpack')
 const path = require('path')
-var  HtmlWebpackPlugin  =  require('html-webpack-plugin')
+    const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const sourceRoot = path.resolve('./src')
 const outputRoot = path.resolve(`./build`)
@@ -14,7 +14,7 @@ module.exports = {
     output: {
         path: outputRoot,
         publicPath: '/',
-        filename: 'javascripts/[name]-[chunkhash].js'
+        filename: 'javascripts/[name]-[hash].js'
     },
     resolve: {
         alias: {
@@ -39,7 +39,7 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                loaders: ['style-loader', `css?root=${sourceRoot}`]
+                loader: 'style-loader!css-loader'
             },
             // {
             //     test: /\.scss$/,
@@ -67,6 +67,12 @@ module.exports = {
             filename: 'index.html',
             template: './index.html.ejs',
             inject: 'body'
+        }),
+        new webpack.DefinePlugin({
+            "process.env": {
+                NODE_ENV: JSON.stringify("development"),
+                BROWSER: JSON.stringify(true)
+            }
         })
     ]
 }
