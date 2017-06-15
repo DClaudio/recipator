@@ -1,4 +1,5 @@
 import React from 'react'
+import './styles.css'
 
 export default function ({ title, description, imgUrl }) {
     return <div className="recipe-item">

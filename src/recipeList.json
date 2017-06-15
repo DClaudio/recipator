@@ -1,0 +1,55 @@
+[
+    {
+        "title": "First recipe",
+        "description": "the best ever",
+        "imgUrl": "http://placehold.it/300x200",
+        "incredients": [
+            {
+                "name": "onion",
+                "quantity": 1
+            },
+            {
+                "name": "tomato",
+                "quantity": 2
+            },
+            {
+                "name": "poatato",
+                "quantity": 3
+            }
+        ]
+    },
+    {
+        "title": "Second recipe",
+        "description": "The second best ever",
+        "imgUrl": "http://placehold.it/300x200",
+        "incredients": [
+            {
+                "name": "onion",
+                "quantity": 1
+            },
+            {
+                "name": "garlic",
+                "quantity": 1
+            },
+            {
+                "name": "pasta",
+                "quantity": 2
+            }
+        ]
+    },
+    {
+        "title": "Third recipe",
+        "description": "the thrid ever",
+        "imgUrl": "http://placehold.it/300x200",
+        "incredients": [
+            {
+                "name": "garlic",
+                "quantity": 2
+            },
+            {
+                "name": "rice",
+                "quantity": 2
+            }
+        ]
+    }
+]

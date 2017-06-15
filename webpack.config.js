@@ -34,10 +34,6 @@ module.exports = {
                 query: { cacheDirectory: true }
             },
             {
-                test: /\.json$/,
-                loader: 'json-loader'
-            },
-            {
                 test: /\.css$/,
                 loader: 'style-loader!css-loader'
             },
