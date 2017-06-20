@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { Component } from 'react'
+import differenceWith from 'lodash/differenceWith'
+import isEqual from 'lodash/isEqual'
 import RecipeList from './RecipeList'
 import Recipe from './Recipe'
 import Aggregator from './Aggregator'
@@ -6,30 +8,59 @@ import './../stylesheets/global.css'
 
 import recipeListJson from './../recipeList.json'
 
-export default function(){
-    return <div id="container">
-        <div className="row">
-            <h1 className="page-headding">Recipator App</h1>
-            <h2> Choose your recipies, cook your recipies, profit !</h2>
+export default class App extends Component {
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            selectedIncredients: []
+        }
+        this.handleSelectRecipe = this.handleSelectRecipe.bind(this)
+    }
+
+    handleSelectRecipe(newIncredients, isAppend) {
+        this.setState(prevState => ({
+            selectedIncredients: computeNewState(prevState.selectedIncredients, newIncredients, isAppend)
+        }))
+    }
+
+    render() {
+        return <div id="container">
+            <div className="row">
+                <h1 className="page-headding">Recipator App</h1>
+                <h2> Choose your recipies, cook your recipies, profit !</h2>
+            </div>
+            <div className="row">
+                <Aggregator incredients={this.state.selectedIncredients} />
+            </div>
+            <div className="row">
+                <RecipeList>
+                    {buildRecipeComponentsFromList(recipeListJson, this.handleSelectRecipe)}
+                </RecipeList>
+            </div>
         </div>
-        <div className="row">
-            <Aggregator incredients={[]} />
-        </div>
-        <div className="row">
-            <RecipeList>
-                {buildRecipeComponentsFromList(recipeListJson)}
-            </RecipeList>
-        </div>
-    </div>
+    }
 }
 
-function buildRecipeComponentsFromList(recipeList) {
+function buildRecipeComponentsFromList(recipeList, clickHandler) {
     return recipeList.map((recipe, index) =>
-        <Recipe title={recipe.title}
+        <Recipe
+            selectHandler={clickHandler}
+            title={recipe.title}
             description={recipe.description}
             imgUrl={recipe.imgUrl}
             incredients={recipe.incredients}
             key={index}
         />
     )
+}
+
+export function computeNewState(oldList, newList, isAppend) {
+    var resultList
+    if (isAppend) {
+        resultList = [...oldList, ...newList]
+    } else {
+        resultList = differenceWith(oldList, newList, isEqual)
+    }
+    return resultList
 }

@@ -18,9 +18,13 @@ export default class RecipeItem extends Component {
     }
 
     toogleSelected() {
-        this.setState(prevState => ({
-            showCheckSign: !prevState.showCheckSign
-        }))
+        //TODO: is "this" keyword used too much here?
+        this.setState(prevState => {
+            this.props.selectHandler(this.props.incredients, !prevState.showCheckSign)
+            return {
+                showCheckSign: !prevState.showCheckSign
+            }
+        })
     }
 
     render() {
