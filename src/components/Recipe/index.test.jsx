@@ -35,4 +35,11 @@ describe('<Recipe />', () => {
         expect(incredientsList.childAt(0)).to.have.html('<li>garlic: 1</li>')
         expect(incredientsList.childAt(1)).to.have.html('<li>rice: 3</li>')
     })
+
+    it('should toogle selected state when clicked', () => {
+        const recipeComponent = shallow(<Recipe title="title" description="dec" imgUrl="http://tst.com/img.png" />)
+        expect(recipeComponent.find('.recipe-selected')).to.not.be.present()
+        recipeComponent.simulate('click')
+        expect(recipeComponent.find('.recipe-selected')).to.be.present()
+    })
 })  

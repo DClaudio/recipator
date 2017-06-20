@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import './styles.css'
 
 function renderIncredientsList(incredients) {
@@ -7,13 +7,36 @@ function renderIncredientsList(incredients) {
     )
 }
 
-export default function ({ title, description, imgUrl, incredients = [] }) {
-    return <div className="recipeItem">
-        <img className="full-width" src={imgUrl} />
-        <h4>{title}</h4>
-        <p>{description}</p>
-        <ul className="recipeItem__incredients">
-            {renderIncredientsList(incredients)}
-        </ul>
-    </div>
+export default class RecipeItem extends Component {
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            showCheckSign: false
+        }
+        this.toogleSelected = this.toogleSelected.bind(this)
+    }
+
+    toogleSelected() {
+        this.setState(prevState => ({
+            showCheckSign: !prevState.showCheckSign
+        }))
+    }
+
+    render() {
+        const { title, description, imgUrl, incredients = [] } = this.props
+        const checkSign = !this.state.showCheckSign
+            ? ''
+            : <div className="recipe-selected fa fa-check fa-2x" aria-hidden="true"></div>
+
+        return <div className="recipeItem" onClick={this.toogleSelected} >
+            <img className="full-width" src={imgUrl} />
+            <h4>{title}</h4>
+            <p>{description}</p>
+            <ul className="recipeItem__incredients">
+                {renderIncredientsList(incredients)}
+            </ul>
+            {checkSign}
+        </div>
+    }
 }
