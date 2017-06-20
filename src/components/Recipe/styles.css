@@ -4,6 +4,7 @@
 
 .recipeItem {
     position: relative;
+    cursor: pointer;
 }
 
 .recipe-selected {
