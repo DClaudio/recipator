@@ -7,6 +7,7 @@ export default function ({ incredients }) {
             <li key={index}>{elem.name} {elem.quantity}</li>
         )
     return <div>
+        {list.length == 0 ? null : <h3>Incredients required: </h3>}
         <ul>
             {list}
         </ul>
