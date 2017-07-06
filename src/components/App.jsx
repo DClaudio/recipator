@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import RecipeList from './RecipeList'
 import Recipe from './Recipe'
 import Aggregator from './Aggregator'
-import { computeNewState, aggregateIncredients } from './AggregationLogic'
+import { computeNewState } from './AggregationLogic'
 import './../stylesheets/global.css'
 
 import recipeListJson from './../recipeList.json'
@@ -30,7 +30,7 @@ export default class App extends Component {
                 <h2> Choose your recipies, cook your recipies, profit !</h2>
             </div>
             <div className="row">
-                <Aggregator incredients={aggregateIncredients(this.state.selectedIncredients)} />
+                <Aggregator incredients={this.state.selectedIncredients} />
             </div>
             <div className="row">
                 <RecipeList>

@@ -1,10 +1,12 @@
 import differenceWith from 'lodash/differenceWith'
 import isEqual from 'lodash/isEqual'
+import pullAll from 'lodash/pullAll'
+import isEmpty from 'lodash/isEmpty'
 
-export function computeNewState(oldList, newList, isAppend) {
+export function computeNewState(currentIncredients, incredients, isAppend) {
     return isAppend
-        ? [...oldList, ...newList]
-        : differenceWith(oldList, newList, isEqual)
+        ? aggregateIncredients([...currentIncredients, ...incredients])
+        : removeIncredients(currentIncredients, incredients)
 }
 
 export function aggregateIncredients(incredientList = []) {
@@ -13,6 +15,24 @@ export function aggregateIncredients(incredientList = []) {
         let quantity = groupedByName[key].reduce((acc, item) => acc + item.quantity, 0)
         return { name: key, quantity }
     })
+}
+
+function removeIncredients(currentIncredients, incredientsToRemove) {
+    return currentIncredients
+        .map(currentInredient => {
+            const modifiedIncredient = modifyIncredient(incredientsToRemove, currentInredient)
+            return modifiedIncredient 
+        }).filter(incredient => incredient.quantity != 0)
+}
+
+function modifyIncredient(incredientsToRemove, currentIncredient) {
+    const modifiedIncredient = incredientsToRemove
+        .filter(incredientToRemove => incredientToRemove.name === currentIncredient.name)
+        .map(incredientToRemove => ({
+            name: incredientToRemove.name,
+            quantity: currentIncredient.quantity - incredientToRemove.quantity
+        }))
+    return !isEmpty(modifiedIncredient)? modifiedIncredient[0] : currentIncredient
 }
 
 function groupBy(prop, array) {

@@ -4,22 +4,38 @@ import { shallow } from 'enzyme'
 
 import { computeNewState, aggregateIncredients } from './AggregationLogic'
 
-describe('<AggregationLogic', () => {
+describe('AggregationLogic', () => {
 
-    it('should handle state change', () => {
-        const incrToRemove = {
+    const incredientsList1 = [
+        {
+            "name": "onion",
+            "quantity": 1
+        },
+        {
+            "name": "garlic",
+            "quantity": 2
+        },
+        {
+            "name": "rice",
+            "quantity": 2
+        }
+    ]
+    const incredientsList2 = [
+        {
+            "name": "onion",
+            "quantity": 1
+        },
+        {
             "name": "garlic",
             "quantity": 1
+        },
+        {
+            "name": "pasta",
+            "quantity": 1
         }
-        const incrToRemain = {
-            "name": "rice",
-            "quantity": 3
-        }
-        const result = computeNewState([incrToRemain, incrToRemove], [Object.assign({}, incrToRemove)], false)
-        expect(result).to.eql([incrToRemain])
-    })
+    ]
 
-    it('should aggregate incredients', () => {
+    it('should append incredients to the list', () => {
         const expectedResult = [
             {
                 "name": "onion",
@@ -38,39 +54,36 @@ describe('<AggregationLogic', () => {
                 "quantity": 1
             }
         ]
-        const result = aggregateIncredients([...recipe1Incr, ...recipe2Incr])
+
+        const result = computeNewState(incredientsList1, incredientsList2, true)
         expect(result).to.eql(expectedResult)
     })
 
+    it('should remmove incredeints from the list', () => {
+        const incrToRemove = [
+            {
+                "name": "garlic",
+                "quantity": 1
+            },
+            {
+                "name": "onion",
+                "quantity": 1
+            }
+        ]
+        const expectedResult = [
+            {
+                "name": "garlic",
+                "quantity": 1
+            },
+            {
+                "name": "rice",
+                "quantity": 2
+            }
+        ]
 
-    const recipe1Incr = [
-        {
-            "name": "onion",
-            "quantity": 1
-        },
-        {
-            "name": "garlic",
-            "quantity": 2
-        },
-        {
-            "name": "rice",
-            "quantity": 2
-        }
-    ]
-
-    const recipe2Incr = [
-        {
-            "name": "onion",
-            "quantity": 1
-        },
-        {
-            "name": "garlic",
-            "quantity": 1
-        },
-        {
-            "name": "pasta",
-            "quantity": 1
-        }
-    ]
+        const result = computeNewState(incredientsList1, incrToRemove, false)
+        
+        expect(result).to.deep.have.same.members(expectedResult)
+    })
 
 })
