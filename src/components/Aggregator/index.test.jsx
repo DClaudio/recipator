@@ -7,33 +7,10 @@ import Aggregator, { aggregateIncredients } from './index'
 describe('<Aggregator /> ', () => {
 
     it('should render the aggregator', () => {
-        const aggregatorComponent = shallow(<Aggregator incredients={[...recipe1Incr, ...recipe2Incr]} />)
+        const aggregatorComponent = shallow(<Aggregator incredients={recipe1Incr} />)
         const aggregatorList = aggregatorComponent.find('ul')
         expect(aggregatorList).to.be.present()
-        expect(aggregatorList).to.have.exactly(4).descendants('li')
-    })
-
-    it('should aggregate incredients', () => {
-        const expectedResult = [
-            {
-                "name": "onion",
-                "quantity": 2
-            },
-            {
-                "name": "garlic",
-                "quantity": 3
-            },
-            {
-                "name": "rice",
-                "quantity": 2
-            },
-            {
-                "name": "pasta",
-                "quantity": 1
-            }
-        ]
-        const result = aggregateIncredients([...recipe1Incr, ...recipe2Incr])
-        expect(result).to.eql(expectedResult)
+        expect(aggregatorList).to.have.exactly(3).descendants('li')
     })
 
 

@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
-import differenceWith from 'lodash/differenceWith'
-import isEqual from 'lodash/isEqual'
 import RecipeList from './RecipeList'
 import Recipe from './Recipe'
 import Aggregator from './Aggregator'
+import { computeNewState, aggregateIncredients } from './AggregationLogic'
 import './../stylesheets/global.css'
 
 import recipeListJson from './../recipeList.json'
@@ -31,7 +30,7 @@ export default class App extends Component {
                 <h2> Choose your recipies, cook your recipies, profit !</h2>
             </div>
             <div className="row">
-                <Aggregator incredients={this.state.selectedIncredients} />
+                <Aggregator incredients={aggregateIncredients(this.state.selectedIncredients)} />
             </div>
             <div className="row">
                 <RecipeList>
@@ -53,14 +52,4 @@ function buildRecipeComponentsFromList(recipeList, clickHandler) {
             key={index}
         />
     )
-}
-
-export function computeNewState(oldList, newList, isAppend) {
-    var resultList
-    if (isAppend) {
-        resultList = [...oldList, ...newList]
-    } else {
-        resultList = differenceWith(oldList, newList, isEqual)
-    }
-    return resultList
 }

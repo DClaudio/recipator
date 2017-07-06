@@ -3,7 +3,7 @@ import { expect } from 'chai'
 import { shallow } from 'enzyme'
 import _ from 'lodash'
 
-import App, { computeNewState } from './App'
+import App from './App'
 
 describe('<App />', () => {
 
@@ -11,16 +11,4 @@ describe('<App />', () => {
         const appComponent = shallow(<App />)
     })
 
-    it('should handle state change', () => {
-        const incrToRemove = {
-            "name": "garlic",
-            "quantity": 1
-        }
-        const incrToRemain = {
-            "name": "rice",
-            "quantity": 3
-        }
-        const result = computeNewState([incrToRemain, incrToRemove], [Object.assign({}, incrToRemove)], false)
-        expect(result).to.eql([incrToRemain])
-    })
 })
