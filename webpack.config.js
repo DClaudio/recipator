@@ -1,6 +1,7 @@
 const webpack = require('webpack')
 const path = require('path')
-    const HtmlWebpackPlugin = require('html-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 const sourceRoot = path.resolve('./src')
 const outputRoot = path.resolve(`./build`)
@@ -11,6 +12,7 @@ module.exports = {
     entry: {
         main: ['./index.jsx']
     },
+    devtool: 'source-map',  
     output: {
         path: outputRoot,
         publicPath: '/',
@@ -37,24 +39,15 @@ module.exports = {
                 test: /\.css$/,
                 loader: 'style-loader!css-loader'
             },
-            // {
-            //     test: /\.scss$/,
-            //     loaders: ['style-loader', `css?root=${sourceRoot}`, 'sass']
-            // },
             {
                 // Images
                 test: /\.(jpg|gif|png|svg|ico)(\?.*)?$/,
-                loader: 'file?name=[path][name].[ext]'
+                loader: 'file-loader?name=[path][name].[ext]'
             },
             {
                 // Fonts
                 test: /\.(eot|ttf|woff|woff2)(\?.*)?$/,
-                loader: 'file?name=[path][name].[ext]'
-            },
-            {
-                // Audio
-                test: /\.(ogg|wav|mp3)(\?.*)?$/,
-                loader: 'file?name=[path][name].[ext]'
+                loader: 'file-loader?name=[path][name].[ext]'
             }
         ]
     },
@@ -69,6 +62,10 @@ module.exports = {
                 NODE_ENV: JSON.stringify("development"),
                 BROWSER: JSON.stringify(true)
             }
-        })
+        }),
+        new CopyWebpackPlugin([{
+            from: './imgs',
+            to: './imgs'
+        }])
     ]
 }

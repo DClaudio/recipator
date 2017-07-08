@@ -1,55 +1,89 @@
 [
-    {
-        "title": "First recipe",
-        "description": "the best ever",
-        "imgUrl": "http://placehold.it/300x200",
-        "incredients": [
-            {
-                "name": "onion",
-                "quantity": 1
-            },
-            {
-                "name": "tomato",
-                "quantity": 2
-            },
-            {
-                "name": "poatato",
-                "quantity": 3
-            }
-        ]
-    },
-    {
-        "title": "Second recipe",
-        "description": "The second best ever",
-        "imgUrl": "http://placehold.it/300x200",
-        "incredients": [
-            {
-                "name": "onion",
-                "quantity": 1
-            },
-            {
-                "name": "garlic",
-                "quantity": 1
-            },
-            {
-                "name": "pasta",
-                "quantity": 2
-            }
-        ]
-    },
-    {
-        "title": "Third recipe",
-        "description": "the thrid best ever",
-        "imgUrl": "http://placehold.it/300x200",
-        "incredients": [
-            {
-                "name": "garlic",
-                "quantity": 2
-            },
-            {
-                "name": "rice",
-                "quantity": 2
-            }
-        ]
-    }
+  {
+    "title": "Leak and Pea Risotto",
+    "description": "This evening we’re covering risotto technique. A source of lively dinner time debate. Italians broadly fall into two camps: the flippers and the stirrers (our terminology not theirs). Some argue that a risotto must be constantly massaged to develop its creaminess, whilst others (the head chef at the Bulgari hotel in Milan for one) advocate flipping the rice in the pan whilst cooking. We’ve gone for stirring as there is less chance of covering the walls, but flip it if you dare!",
+    "imgUrl": "imgs/leek-and-pea-risotto-with-toasted-pine-nuts-8b4568.jpg",
+    "hellofresh_url": "https://www.hellofresh.co.uk/recipes/leek-and-pea-risotto-5661a5994dab719f5b8b4567",
+    "tags": ["Gluten Free", "Healthy", "Veggie"],
+    "incredients": [
+      {
+        "name": "Vegetable Stock Pot",
+        "quantity": 1,
+        "unit": "unit"
+      },
+      {
+        "name": "Leek",
+        "quantity": 1,
+        "unit": "unit"
+      },
+      {
+        "name": "Garlic Glove",
+        "quantity": 1,
+        "unit": "unit"
+      },
+      {
+        "name": "Pine Nuts",
+        "quantity": 1,
+        "unit": "tbsp"
+      },
+      {
+        "name": "Butter",
+        "quantity": 1.5,
+        "unit": "tbsp"
+      },
+      {
+        "name": "Arborio Rice",
+        "quantity": 200,
+        "unit": "grams"
+      },
+      {
+        "name": "Peas",
+        "quantity": 100,
+        "unit": "grams"
+      },
+      {
+        "name": "Hard Italian Cheese",
+        "quantity": 2,
+        "unit": "tbsp"
+      }
+    ]
+  },
+  {
+    "title": "Second recipe",
+    "description": "The second best ever",
+    "imgUrl": "imgs/leek-and-pea-risotto-with-toasted-pine-nuts-8b4568.jpg",
+    "hellofresh_url": "https://www.hellofresh.co.uk/recipes/leek-and-pea-risotto-5661a5994dab719f5b8b4567",
+    "tags": ["Gluten Free", "Healthy", "Veggie"],
+    "incredients": [
+      {
+        "name": "onion",
+        "quantity": 1
+      },
+      {
+        "name": "garlic",
+        "quantity": 1
+      },
+      {
+        "name": "pasta",
+        "quantity": 2
+      }
+    ]
+  },
+  {
+    "title": "Third recipe",
+    "description": "the thrid best ever",
+    "imgUrl": "imgs/leek-and-pea-risotto-with-toasted-pine-nuts-8b4568.jpg",
+    "hellofresh_url": "https://www.hellofresh.co.uk/recipes/leek-and-pea-risotto-5661a5994dab719f5b8b4567",
+    "tags": ["Gluten Free", "Healthy", "Veggie"],
+    "incredients": [
+      {
+        "name": "garlic",
+        "quantity": 2
+      },
+      {
+        "name": "rice",
+        "quantity": 2
+      }
+    ]
+  }
 ]
