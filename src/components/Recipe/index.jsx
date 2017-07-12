@@ -1,11 +1,6 @@
 import React, { Component } from 'react'
+import ReadMore from '../ReadMore'
 import './styles.css'
-
-function renderIncredientsList(incredients) {
-    return incredients.map((incredient, index) =>
-        <li key={index}>{incredient.name}: {incredient.quantity}</li>
-    )
-}
 
 export default class RecipeItem extends Component {
 
@@ -33,14 +28,18 @@ export default class RecipeItem extends Component {
             ? ''
             : <div className="recipe-selected fa fa-check fa-2x" aria-hidden="true"></div>
 
-        return <div className="recipeItem" onClick={this.toogleSelected} >
-            <img className="full-width" src={imgUrl} />
+        return <div className="recipeItem"  >
+            <img className="full-width" src={imgUrl} onClick={this.toogleSelected} />
             <h4>{title}</h4>
-            <p>{description}</p>
-            <ul className="recipeItem__incredients">
-                {renderIncredientsList(incredients)}
-            </ul>
+            <ReadMore className="recipeItem__description">{description}</ReadMore>
             {checkSign}
         </div>
     }
+}
+
+
+function renderIncredientsList(incredients) {
+    return incredients.map((incredient, index) =>
+        <li key={index}>{incredient.name}: {incredient.quantity}</li>
+    )
 }

@@ -4,6 +4,9 @@
 
 .recipeItem {
     position: relative;
+}
+
+.recipeItem img {
     cursor: pointer;
 }
 
