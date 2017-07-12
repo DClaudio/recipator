@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import ReadMore from '../ReadMore'
+import ReadMore from '~/components/ReadMore'
 import './styles.css'
 
 export default class RecipeItem extends Component {
