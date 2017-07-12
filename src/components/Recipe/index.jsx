@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import ReadMore from '../ReadMore'
 import './styles.css'
 
@@ -23,23 +24,17 @@ export default class RecipeItem extends Component {
     }
 
     render() {
-        const { title, description, imgUrl, incredients = [] } = this.props
+        const { id, title, description, imgUrl, incredients = [] } = this.props
         const checkSign = !this.state.showCheckSign
             ? ''
             : <div className="recipe-selected fa fa-check fa-2x" aria-hidden="true"></div>
 
         return <div className="recipeItem"  >
             <img className="full-width" src={imgUrl} onClick={this.toogleSelected} />
+            <Link to={`/recipes/${id}`}>{title}</Link>
             <h4>{title}</h4>
             <ReadMore className="recipeItem__description">{description}</ReadMore>
             {checkSign}
         </div>
     }
-}
-
-
-function renderIncredientsList(incredients) {
-    return incredients.map((incredient, index) =>
-        <li key={index}>{incredient.name}: {incredient.quantity}</li>
-    )
 }

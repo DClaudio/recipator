@@ -1,13 +1,11 @@
 import React, { Component } from 'react'
-import RecipeList from './RecipeList'
-import Recipe from './Recipe'
-import Aggregator from './Aggregator'
-import { computeNewState } from './AggregationLogic'
-import './../stylesheets/global.css'
+import RecipeList from '~/components/RecipeList'
+import Recipe from '~/components/Recipe'
+import Aggregator from '~/components/Aggregator'
+import { computeNewState } from '~/components/AggregationLogic'
+import '~/stylesheets/global.css'
 
-import recipeListJson from './../recipeList.json'
-
-export default class App extends Component {
+export default class Root extends Component {
 
     constructor(props) {
         super(props)
@@ -24,6 +22,7 @@ export default class App extends Component {
     }
 
     render() {
+        const { recipeList } = this.props
         return <div id="container">
             <div className="row">
                 <h1 className="page-headding">Recipator App</h1>
@@ -34,7 +33,7 @@ export default class App extends Component {
             </div>
             <div className="row">
                 <RecipeList>
-                    {buildRecipeComponentsFromList(recipeListJson, this.handleSelectRecipe)}
+                    {buildRecipeComponentsFromList(recipeList, this.handleSelectRecipe)}
                 </RecipeList>
             </div>
         </div>
@@ -45,6 +44,7 @@ function buildRecipeComponentsFromList(recipeList, clickHandler) {
     return recipeList.map((recipe, index) =>
         <Recipe
             selectHandler={clickHandler}
+            id={recipe.id}
             title={recipe.title}
             description={recipe.description}
             imgUrl={recipe.imgUrl}
