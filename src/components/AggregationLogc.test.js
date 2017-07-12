@@ -9,29 +9,35 @@ describe('AggregationLogic', () => {
     const incredientsList1 = [
         {
             "name": "onion",
-            "quantity": 1
+            "quantity": 1,
+            "unit": "unit(s)"
         },
         {
             "name": "garlic",
-            "quantity": 2
+            "quantity": 2,
+            "unit": "unit(s)"
         },
         {
             "name": "rice",
-            "quantity": 2
+            "quantity": 200,
+            "unit": "grams"
         }
     ]
     const incredientsList2 = [
         {
             "name": "onion",
-            "quantity": 1
+            "quantity": 1,
+            "unit": "unit(s)"
         },
         {
             "name": "garlic",
-            "quantity": 1
+            "quantity": 1,
+            "unit": "unit(s)"
         },
         {
             "name": "pasta",
-            "quantity": 1
+            "quantity": 100,
+            "unit": "grams"
         }
     ]
 
@@ -39,19 +45,23 @@ describe('AggregationLogic', () => {
         const expectedResult = [
             {
                 "name": "onion",
-                "quantity": 2
+                "quantity": 2,
+                "unit": "unit(s)"
             },
             {
                 "name": "garlic",
-                "quantity": 3
+                "quantity": 3,
+                "unit": "unit(s)"
             },
             {
                 "name": "rice",
-                "quantity": 2
+                "quantity": 200,
+                "unit": "grams"
             },
             {
                 "name": "pasta",
-                "quantity": 1
+                "quantity": 100,
+                "unit": "grams"
             }
         ]
 
@@ -63,26 +73,30 @@ describe('AggregationLogic', () => {
         const incrToRemove = [
             {
                 "name": "garlic",
-                "quantity": 1
+                "quantity": 1,
+                "unit": "unit(s)"
             },
             {
                 "name": "onion",
-                "quantity": 1
+                "quantity": 1,
+                "unit": "unit(s)"
             }
         ]
         const expectedResult = [
             {
                 "name": "garlic",
-                "quantity": 1
+                "quantity": 1,
+                "unit": "unit(s)"
             },
             {
                 "name": "rice",
-                "quantity": 2
+                "quantity": 200,
+                "unit": "grams"
             }
         ]
 
         const result = computeNewState(incredientsList1, incrToRemove, false)
-        
+
         expect(result).to.deep.have.same.members(expectedResult)
     })
 

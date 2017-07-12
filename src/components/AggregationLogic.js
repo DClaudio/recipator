@@ -12,8 +12,11 @@ export function computeNewState(currentIncredients, incredients, isAppend) {
 export function aggregateIncredients(incredientList = []) {
     const groupedByName = groupBy("name", incredientList)
     return Object.keys(groupedByName).map(key => {
-        let quantity = groupedByName[key].reduce((acc, item) => acc + item.quantity, 0)
-        return { name: key, quantity }
+        let result = groupedByName[key].reduce(
+            (acc, item) => Object.assign(item, { quantity: acc.quantity + item.quantity }),
+            { quantity: 0 }
+        )
+        return result
     })
 }
 
@@ -21,23 +24,26 @@ function removeIncredients(currentIncredients, incredientsToRemove) {
     return currentIncredients
         .map(currentInredient => {
             const modifiedIncredient = modifyIncredient(incredientsToRemove, currentInredient)
-            return modifiedIncredient 
+            return modifiedIncredient
         }).filter(incredient => incredient.quantity != 0)
 }
 
 function modifyIncredient(incredientsToRemove, currentIncredient) {
     const modifiedIncredient = incredientsToRemove
         .filter(incredientToRemove => incredientToRemove.name === currentIncredient.name)
-        .map(incredientToRemove => ({
-            name: incredientToRemove.name,
-            quantity: currentIncredient.quantity - incredientToRemove.quantity
-        }))
-    return !isEmpty(modifiedIncredient)? modifiedIncredient[0] : currentIncredient
+        .map(incredientToRemove => (Object.assign(
+            incredientToRemove,
+            {
+                name: incredientToRemove.name,
+                quantity: currentIncredient.quantity - incredientToRemove.quantity
+            })
+        ))
+    return !isEmpty(modifiedIncredient) ? modifiedIncredient[0] : currentIncredient
 }
 
 function groupBy(prop, array) {
     return array.reduce((groups, item) => {
-        var val = item[prop];
+        let val = item[prop];
         groups[val] = groups[val] || [];
         groups[val].push(item);
         return groups;

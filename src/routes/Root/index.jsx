@@ -29,7 +29,7 @@ export default class Root extends Component {
                 <h2> Choose your recipies, cook your recipies, profit !</h2>
             </div>
             <div className="row">
-                <IncredientsList incredients={this.state.selectedIncredients} />
+                <IncredientsList className="agregated__incredientsList" incredients={this.state.selectedIncredients} />
             </div>
             <div className="row">
                 <RecipeList>

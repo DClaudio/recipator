@@ -8,7 +8,7 @@ import '~/stylesheets/global.css'
 import recipeListJson from '~/recipeList.json'
 
 const RecipePageRoute = ({ match }) => {
-    var currentRecipe = _find(recipeListJson, { id: match.params.recipeId })
+    let currentRecipe = _find(recipeListJson, { id: match.params.recipeId })
     return <RecipePage recipe={currentRecipe} />
 }
 
