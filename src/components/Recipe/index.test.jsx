@@ -1,6 +1,7 @@
 import React from 'react'
+import { MemoryRouter } from 'react-router-dom'
 import { expect } from 'chai'
-import { shallow } from 'enzyme'
+import { shallow, render } from 'enzyme'
 import { spy } from 'sinon'
 
 import Recipe from './index'
@@ -11,11 +12,16 @@ describe('<Recipe />', () => {
         let title = 'first recipe'
         let description = 'this is the best recipe ever'
         let imgUrl = 'http://tst.com/img.png'
-        const recipeComponent = shallow(<Recipe title={title} description={description} imgUrl={imgUrl} />)
+        const wrapper = render(
+            <MemoryRouter>
+                <Recipe title={title} description={description} imgUrl={imgUrl} />
+            </MemoryRouter>
+        )
+        const recipeComponent = wrapper.find('div.recipeItem')
 
+        expect(recipeComponent).to.be.present()
         expect(recipeComponent.find('img')).to.have.attr('src', imgUrl)
-        expect(recipeComponent.hasClass('recipeItem')).to.equal(true)
-        expect(recipeComponent.find('h4')).to.have.text(title)
+        expect(recipeComponent.find('h4 a')).to.have.text(title)
         expect(recipeComponent.find('.recipeItem__description')).to.be.present()
     })
 

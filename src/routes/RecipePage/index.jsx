@@ -1,13 +1,9 @@
 import React, { Component } from 'react'
+import IncredientsList from '~/components/IncredientsList'
 
-export default function () {
+export default function ({ recipe }) {
     return <div>
-        This is a recipe page
-        </div>
-}
-
-function renderIncredientsList(incredients) {
-    return incredients.map((incredient, index) =>
-        <li key={index}>{incredient.name}: {incredient.quantity}</li>
-    )
+        This is the recipe page:
+        <IncredientsList incredients={recipe.incredients} />
+    </div>
 }

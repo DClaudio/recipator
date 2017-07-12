@@ -1,12 +1,11 @@
 import React from 'react'
-import { expect } from 'chai'
 import { shallow } from 'enzyme'
 import Root from './index'
 
-describe('<Root />', () => {
+describe.only('<Root />', () => {
 
     it('should render the Root page without errors', () => {
-        const appComponent = shallow(<Root recipeList={[]} />)
+        const rootComponent = shallow(<Root recipeList={[]} />)
     })
 
 })

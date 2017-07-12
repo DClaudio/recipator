@@ -31,8 +31,7 @@ export default class RecipeItem extends Component {
 
         return <div className="recipeItem"  >
             <img className="full-width" src={imgUrl} onClick={this.toogleSelected} />
-            <Link to={`/recipes/${id}`}>{title}</Link>
-            <h4>{title}</h4>
+            <h4><Link to={`/recipes/${id}`}>{title}</Link></h4>
             <ReadMore className="recipeItem__description">{description}</ReadMore>
             {checkSign}
         </div>
