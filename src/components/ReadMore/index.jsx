@@ -67,15 +67,13 @@ class ReadMore extends Component {
 ReadMore.defaultProps = {
     lines: 3,
     more: 'Read more',
-    less: 'Show less',
-    className: 'readmore__default'
+    less: 'Show less'
 }
 
 ReadMore.propTypes = {
     children: PropTypes.node.isRequired,
     text: PropTypes.node,
-    lines: PropTypes.number,
-    className: PropTypes.String
+    lines: PropTypes.number
 }
 
 export default ReadMore
