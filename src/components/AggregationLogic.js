@@ -31,7 +31,7 @@ function removeIncredients(currentIncredients, incredientsToRemove) {
 function modifyIncredient(incredientsToRemove, currentIncredient) {
     const modifiedIncredient = incredientsToRemove
         .filter(incredientToRemove => incredientToRemove.name === currentIncredient.name)
-        .map(incredientToRemove => (Object.assign(
+        .map(incredientToRemove => (Object.assign({},
             incredientToRemove,
             {
                 name: incredientToRemove.name,
@@ -45,7 +45,7 @@ function groupBy(prop, array) {
     return array.reduce((groups, item) => {
         let val = item[prop];
         groups[val] = groups[val] || [];
-        groups[val].push(item);
+        groups[val].push(Object.assign({}, item));
         return groups;
     }, {});
 }
