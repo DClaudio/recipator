@@ -6,7 +6,7 @@ import { computeNewState, aggregateIncredients } from './AggregationLogic'
 
 describe('AggregationLogic', () => {
 
-    const incredientsList1 = [
+    const incredientsList1 = () => [
         {
             "name": "onion",
             "quantity": 1,
@@ -23,7 +23,7 @@ describe('AggregationLogic', () => {
             "unit": "grams"
         }
     ]
-    const incredientsList2 = [
+    const incredientsList2 = () => [
         {
             "name": "onion",
             "quantity": 1,
@@ -65,11 +65,11 @@ describe('AggregationLogic', () => {
             }
         ]
 
-        const result = computeNewState(incredientsList1, incredientsList2, true)
+        const result = computeNewState(incredientsList1(), incredientsList2(), true)
         expect(result).to.eql(expectedResult)
     })
 
-    it('should remmove incredeints from the list', () => {
+    it.only('should remmove incredeints from the list', () => {
         const incrToRemove = [
             {
                 "name": "garlic",
@@ -95,7 +95,7 @@ describe('AggregationLogic', () => {
             }
         ]
 
-        const result = computeNewState(incredientsList1, incrToRemove, false)
+        const result = computeNewState(incredientsList1(), incrToRemove, false)
 
         expect(result).to.deep.have.same.members(expectedResult)
     })
