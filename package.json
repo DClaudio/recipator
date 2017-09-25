@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --progress --inline --hot",
-    "build": " webpack",
+    "start": "webpack-dev-server --progress --inline --hot  --config  webpack.dev.js",
+    "build": "webpack -p --config webpack.prod.js",
     "test": "mocha --compilers js:babel-core/register --require ./test/helpers/setup.js ./src/**/*.test.js*"
   },
   "author": "",
@@ -30,6 +30,7 @@
     "babel-preset-stage-3": "^6.24.1",
     "chai": "^4.0.2",
     "chai-enzyme": "^0.7.1",
+    "clean-webpack-plugin": "^0.1.16",
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.28.4",
     "enzyme": "^2.8.2",
@@ -44,6 +45,7 @@
     "sinon-chai": "^2.11.0",
     "style-loader": "^0.18.2",
     "webpack": "^2.6.1",
-    "webpack-dev-server": "^2.4.5"
+    "webpack-dev-server": "^2.4.5",
+    "webpack-merge": "^4.1.0"
   }
 }
