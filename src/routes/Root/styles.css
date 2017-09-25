@@ -1,0 +1,21 @@
+.container {
+    width: 900px;
+    margin: 0 auto;
+    padding: 0 15px;
+    text-align: center;
+}
+
+.recipes-section {
+    padding: 15px 0;
+    background-color: #fdfcfa;
+}
+
+.recipes-section h2 {
+    margin: 0;
+    padding: 10px 0;
+}
+
+.incredients-section {
+    background-color: #f7f6f4;
+    border-top: 1px solid #999;
+}

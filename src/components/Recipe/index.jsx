@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import ReadMore from '~/components/ReadMore'
 import './styles.css'
 
 export default class RecipeItem extends Component {
@@ -30,10 +29,9 @@ export default class RecipeItem extends Component {
 
         const klass = !this.state.showCheckSign ? "recipeItem" : "recipeItem recipeItem-selected"
 
-        return <div className={klass}  >
+        return <div className={klass} >
             <img className="full-width" src={imgUrl} onClick={this.toogleSelected} />
             <h4><Link to={`/recipes/${id}`} className="nostyle">{title}</Link></h4>
-            {/* <ReadMore className="recipeItem__description">{description}</ReadMore> */}
             {checkSign}
         </div>
     }

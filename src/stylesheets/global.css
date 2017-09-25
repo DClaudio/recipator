@@ -2,13 +2,15 @@
     box-sizing: border-box;
 }
 
-#container {
-    width: 900px;
-    margin: 0 auto;
-    padding: 0 15px;
-    text-align: center;
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    line-height: 1.5em;
 }
 
-.row {
-    margin: 50px -15px;
+a.nostyle:link, a.nostyle:visited  {
+    text-decoration: inherit;
+    color: inherit;
+    cursor: auto;
 }

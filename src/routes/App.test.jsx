@@ -6,7 +6,7 @@ import App from './App'
 
 describe('<App />', () => {
 
-    it('should render the App without errors', () => {
+    it('should shallow render the App without errors', () => {
         const appComponent = shallow(<App />)
     })
 

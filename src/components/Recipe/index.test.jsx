@@ -17,12 +17,12 @@ describe('<Recipe />', () => {
                 <Recipe title={title} description={description} imgUrl={imgUrl} />
             </MemoryRouter>
         )
+        
         const recipeComponent = wrapper.find('div.recipeItem')
 
         expect(recipeComponent).to.be.present()
         expect(recipeComponent.find('img')).to.have.attr('src', imgUrl)
         expect(recipeComponent.find('h4 a')).to.have.text(title)
-        // expect(recipeComponent.find('.recipeItem__description')).to.be.present()
     })
 
     it('should toogle selected state when clicked', () => {

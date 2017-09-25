@@ -4,6 +4,7 @@ import Recipe from '~/components/Recipe'
 import IncredientsList from '~/components/IncredientsList'
 import { computeNewState } from '~/components/AggregationLogic'
 import '~/stylesheets/global.css'
+import './styles.css'
 
 export default class Root extends Component {
 
@@ -23,19 +24,20 @@ export default class Root extends Component {
 
     render() {
         const { recipeList } = this.props
-        return <div id="container">
-            <div className="row">
-                <h1 className="page-headding">Recipator App</h1>
-                <h2> Choose your recipies, cook your recipies, profit !</h2>
-            </div>
-            <div className="row">
-                <IncredientsList className="agregated__incredientsList" incredients={this.state.selectedIncredients} />
-            </div>
-            <div className="row">
-                <RecipeList>
-                    {buildRecipeComponentsFromList(recipeList, this.handleSelectRecipe)}
-                </RecipeList>
-            </div>
+        return <div className="mainPage">
+            <section className="recipes-section">
+                <div className="container">
+                    <h2> Choose your recipies, cook your recipies, profit !</h2>
+                    <RecipeList>
+                        {buildRecipeComponentsFromList(recipeList, this.handleSelectRecipe)}
+                    </RecipeList>
+                </div>
+            </section>
+            <section className="incredients-section">
+                <div className="container">
+                    <IncredientsList className="agregated__incredientsList" incredients={this.state.selectedIncredients} />
+                </div>
+            </section>
         </div>
     }
 }
