@@ -69,7 +69,7 @@ describe('AggregationLogic', () => {
         expect(result).to.eql(expectedResult)
     })
 
-    it.only('should remmove incredeints from the list', () => {
+    it('should remmove incredeints from the list', () => {
         const incrToRemove = [
             {
                 "name": "garlic",
