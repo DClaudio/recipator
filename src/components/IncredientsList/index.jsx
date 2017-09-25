@@ -8,7 +8,8 @@ export default function ({ incredients, className }) {
     )
     let cssClass = classnames('incredientsList', className)
     return <div className={cssClass}>
-        {list.length == 0 ? null : <h3>Incredients required: </h3>}
+        <h3>Incredients required: </h3>
+        { list.length == 0 ? <p> You haven't selected any recipies. </p> :  null }
         <ul>
             {list}
         </ul>
