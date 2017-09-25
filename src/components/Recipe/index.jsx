@@ -28,10 +28,12 @@ export default class RecipeItem extends Component {
             ? ''
             : <div className="recipe-selected fa fa-check fa-2x" aria-hidden="true"></div>
 
-        return <div className="recipeItem"  >
+        const klass = !this.state.showCheckSign ? "recipeItem" : "recipeItem recipeItem-selected"
+
+        return <div className={klass}  >
             <img className="full-width" src={imgUrl} onClick={this.toogleSelected} />
-            <h4><Link to={`/recipes/${id}`}>{title}</Link></h4>
-            <ReadMore className="recipeItem__description">{description}</ReadMore>
+            <h4><Link to={`/recipes/${id}`} className="nostyle">{title}</Link></h4>
+            {/* <ReadMore className="recipeItem__description">{description}</ReadMore> */}
             {checkSign}
         </div>
     }
