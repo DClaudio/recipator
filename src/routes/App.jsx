@@ -8,24 +8,17 @@ import '~/stylesheets/global.css'
 
 import recipeListJson from '~/recipeList.json'
 
-export default class App extends Component {
+export default function () {
+    const findRecipe = (recipeId) => find(propEq("id", recipeId))(recipeListJson);
+    const RecipeDescPage = ({ match }) => <RecipePage recipe={findRecipe(match.params.recipeId)} />;
+    const RootPage = () => <Root recipeList={recipeListJson} />
 
-    constructor(props) {
-        super(props)
-    }
-
-    render() {
-        const findRecipe = (recipeId) => find(propEq("id", recipeId))(recipeListJson);
-        const RecipeDescPage = ({ match }) => <RecipePage recipe={findRecipe(match.params.recipeId)} />;
-        const RootPage = () => <Root recipeList={recipeListJson} />
-        
-        return <Layout>
-            <Router>
-                <main>
-                    <Route exact path="/" component={RootPage} />
-                    <Route path="/recipes/:recipeId" component={RecipeDescPage} />
-                </main>
-            </Router>
-        </Layout>
-    }
+    return <Layout>
+        <Router>
+            <main>
+                <Route exact path="/" component={RootPage} />
+                <Route path="/recipes/:recipeId" component={RecipeDescPage} />
+            </main>
+        </Router>
+    </Layout>
 }
