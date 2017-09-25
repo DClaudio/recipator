@@ -15,10 +15,8 @@ describe('<RecipeList />', () => {
         )
 
         expect(recipeListComponent.childAt(0)).to.have.className('column-third')
-        expect(recipeListComponent.childAt(0)).to.have.className('column')
 
         expect(recipeListComponent.childAt(1)).to.have.className('column-third')
-        expect(recipeListComponent.childAt(1)).to.have.className('column')
         // ['column-third', 'column'].every(c => expect(recipeListComponent.childAt(0)).to.have.className(c))
 
         expect(recipeListComponent.childAt(1).hasClass('column-third')).to.equal(true)

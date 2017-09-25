@@ -1,6 +1,9 @@
+.recipe-list {
+    display: inline-block;
+}
 .column {
     float: left;
-    padding: 0 15px;
+    padding: 0 5px;
 }
 
 .column-third {
