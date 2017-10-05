@@ -17,6 +17,7 @@ export default function () {
         <Router>
             <main>
                 <Route exact path="/" component={RootPage} />
+                <Route path="/index.html" component={RootPage} />
                 <Route path="/recipes/:recipeId" component={RecipeDescPage} />
             </main>
         </Router>
