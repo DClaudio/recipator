@@ -10,3 +10,6 @@ A short description of the motivation behind the creation and maintenance of the
 ## License
 
 A short snippet describing the license (MIT, Apache, etc.)
+
+## upload cmd  example
+az storage blob upload-batch -s .\dist\ -d recipator-dist  --account-name recipator
