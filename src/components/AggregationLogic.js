@@ -9,14 +9,11 @@ export function computeNewState(currentIncredients, incredients, isAppend) {
 export function aggregateIncredients(incredientList = []) {    
     const groupedByName = _.groupBy(_.prop('name'))(incredientList)
     return _.compose(
-        _.map(key => {
-
-            let result = groupedByName[key].reduce(
-                (acc, item) => Object.assign(item, { quantity: acc.quantity + item.quantity }),
+        _.map(key => groupedByName[key].reduce(
+                (acc, item) => Object.assign({}, item, { quantity: acc.quantity + item.quantity }),
                 { quantity: 0 }
             )
-            return result
-        }),
+        ),
         Object.keys
     )(groupedByName)
 }
