@@ -16,18 +16,24 @@ module.exports = {
             '~': sourceRoot
         },
         extensions: [
-            '.js', '.jsx', '.json'
+            '.js', '.jsx', '.json', '.elm'
         ],
         unsafeCache: true
     },
     module: {
         loaders: [
+            
             {
                 test: /\.jsx?$/,
-                exclude: /node_modules/,
+                exclude: [/elm-stuff/, /node_modules/],
                 loader: 'babel-loader',
                 query: { cacheDirectory: true }
             },
+            {
+              test:    /\.elm$/,
+              exclude: [/elm-stuff/, /node_modules/],
+              loader:  'elm-webpack-loader?verbose=true',
+            },            
             {
                 test: /\.json$/,
                 loader: 'json-loader'
