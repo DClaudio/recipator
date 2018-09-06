@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { find, propEq } from 'ramda'
-import Root from '~/routes/Root'
+import Root from '~/routes/root'
 import Layout from '~/components/layout'
 import RecipePage from '~/routes/recipePage'
 import '~/stylesheets/global.css'

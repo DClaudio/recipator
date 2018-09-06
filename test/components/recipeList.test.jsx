@@ -2,7 +2,7 @@ import React from 'react'
 import { expect } from 'chai'
 import { shallow } from 'enzyme'
 
-import RecipeList from './recipeList'
+import RecipeList from '../../src/components/recipeList'
 
 describe('<RecipeList />', () => {
     it('should render the recipe list', () => {

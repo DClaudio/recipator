@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server --progress --inline --hot  --config  webpack.dev.js",
     "build": "webpack -p --config webpack.prod.js",
-    "test": "mocha --require babel-core/register ./test/helpers/setup.js src/**/**.test.js*"
+    "test": "mocha --require babel-core/register ./test/helpers/setup.js test/**/**.test.js*"
   },
   "author": "",
   "license": "ISC",

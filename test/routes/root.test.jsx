@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import Root from './root'
+import Root from '../../src/routes/root'
 
 describe('<Root />', () => {
 

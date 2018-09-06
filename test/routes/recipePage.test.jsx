@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import RecipePage from './recipePage'
+import RecipePage from '../../src/routes/recipePage'
 
 describe('<RecipePage />', () => {
 

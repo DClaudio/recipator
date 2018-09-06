@@ -2,7 +2,7 @@ import React from 'react'
 import { expect } from 'chai'
 import { shallow } from 'enzyme'
 
-import IncredientsList from './incredientsList'
+import IncredientsList from '../../src/components/incredientsList'
 
 describe('<IncredientsList /> ', () => {
 

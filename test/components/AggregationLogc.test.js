@@ -2,7 +2,7 @@ import React from 'react'
 import { expect } from 'chai'
 import { shallow } from 'enzyme'
 
-import { computeNewState, aggregateIncredients } from './AggregationLogic'
+import { computeNewState, aggregateIncredients } from '../../src/components/AggregationLogic'
 
 describe('AggregationLogic', () => {
 
