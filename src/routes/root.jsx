@@ -3,7 +3,7 @@ import RecipeList from '~/components/recipeList'
 import Recipe from '~/components/recipe'
 import IncredientsList from '~/components/incredientsList'
 import { computeNewState } from '~/components/AggregationLogic'
-import './root.css'
+import '~/stylesheets/root.css'
 
 export default class Root extends Component {
 

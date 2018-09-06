@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import classnames from 'classnames'
-import './incredientsList.css'
+import  '~/stylesheets/incredientsList.css'
 
 export default function ({ incredients, className }) {
     const list = incredients.map(

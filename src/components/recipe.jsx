@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import './recipe.css'
+import  '~/stylesheets/recipe.css'
 
 export default class RecipeItem extends Component {
 

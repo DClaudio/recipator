@@ -1,5 +1,5 @@
 import React from 'react'
-import './recipeList.css'
+import  '~/stylesheets/recipeList.css'
 
 export default function ({ children }) {
     let wrappedChildren = React.Children.map(children, function (child, index) {
