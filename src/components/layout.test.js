@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import { expect } from 'chai'
-import Layout from '~/components/Layout'
+import Layout from '~/components/layout'
 
 
 describe('<Layout />', () => {

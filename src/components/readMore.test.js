@@ -3,7 +3,7 @@ import { expect } from 'chai'
 import { shallow } from 'enzyme'
 import { spy } from 'sinon'
 
-import ReadMore from './index'
+import ReadMore from './readMore'
 
 describe('<ReadMore />', () => {
     //TODO: write proper tests

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './styles.css'
+import './layout.css'
 
 export default function ({ children }) {
     const Header = () => <header className="top">
