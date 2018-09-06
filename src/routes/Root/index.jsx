@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import RecipeList from '~/components/RecipeList'
 import Recipe from '~/components/Recipe'
-import IncredientsList from '~/components/IncredientsList'
+import IncredientsList from '~/components/incredientsList'
 import { computeNewState } from '~/components/AggregationLogic'
 import '~/stylesheets/global.css'
 import './styles.css'
